@@ -1,0 +1,9 @@
+.idea
+.venv
+.tox
+__pycache__
+stats_service.egg-info
+timeseries_service.egg-info
+log.html
+output.xml
+report.html

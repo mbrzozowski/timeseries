@@ -1,0 +1,36 @@
+version: '3'
+services:
+  postgres:
+    image: bitnami/postgresql:11
+    environment:
+      - POSTGRESQL_USERNAME=time
+      - POSTGRESQL_PASSWORD=series
+      - POSTGRESQL_DATABASE=stats_db
+    ports:
+      - "5432:5432"
+    networks:
+      - timeseries-network
+  stats_service:
+    image: stats_service:dev
+    environment:
+      - DATABASE_URL=postgresql://time:series@postgres:5432/stats_db
+    ports:
+      - "8686:8686"
+    networks:
+      - timeseries-network
+    depends_on:
+      - postgres
+  timeseries_service:
+    image: timeseries_service:dev
+    environment:
+      - DATABASE_URL=postgresql://time:series@postgres:5432/stats_db
+    ports:
+      - "8585:8585"
+    networks:
+      - timeseries-network
+    depends_on:
+      - postgres
+
+networks:
+  timeseries-network:
+    driver: bridge
