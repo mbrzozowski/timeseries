@@ -23,6 +23,11 @@ docker, docker-compose, python3.6, virtualenv, postgresql-devel
 ./setup.sh
 ```
 
+### Teardown docker-compose
+```bash
+docker-compose down
+```
+
 ### TODO
 * Review
 * Use WSGI server e.g. gunicorn

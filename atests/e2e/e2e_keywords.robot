@@ -74,7 +74,7 @@ Table ${table} Column ${column} Should Be ${data_type}
 
 Table ${table} Count Should Be ${num}
     ${result}    Query Postgres    select count(*) as cnt from timeseries
-    Should Be Equal As Integers    ${result['cnt']}    ${num}
+    Should Be Equal As Integers    ${result[0]['cnt']}    ${num}
 
 For Timestamp ${t} Value Should Be Equal ${v}
     ${result}    Query Postgres    select v from timeseries where t='${t}'

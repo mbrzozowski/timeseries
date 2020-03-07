@@ -36,7 +36,7 @@ Database Should Have Data
     Table timeseries Column name Should Be character varying
     Table timeseries Column t Should Be integer
     Table timeseries Column v Should Be real
-  #  Table timeseries Count Should Be 5
+    Table timeseries Count Should Be 5
     For Timestamp 13515552 Value Should Be Equal 2.4
 
 
