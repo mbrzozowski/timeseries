@@ -24,6 +24,7 @@ services:
     image: timeseries_service:dev
     environment:
       - DATABASE_URL=postgresql://time:series@postgres:5432/stats_db
+      - STATS_SERVICE_URL=http://stats_service:8686
     ports:
       - "8585:8585"
     networks:
